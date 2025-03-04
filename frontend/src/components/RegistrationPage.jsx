@@ -1,6 +1,8 @@
+const BACK_URL = import.meta.env.VITE_BACK_URL
+
 import React, { useState, useRef , useEffect } from "react";
 import { io } from "socket.io-client";
-const socket = io("http://localhost:8000"); 
+const socket = io(BACK_URL); 
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
@@ -100,7 +102,7 @@ const RegistrationPage = () => {
     // ✅ Send data to backend
     setLoading(true); // Show loading state
     try {
-      const response = await fetch("http://localhost:8000/team/register", {
+      const response = await fetch(`${BACK_URL}/team/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ team }),

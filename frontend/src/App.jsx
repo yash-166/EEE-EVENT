@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import FirstPage from "./pages/FirstPage";
-import SecondPage from "./pages/SecondPart";
 import './App.css'
 import AppRouter from './routers/router';
 import { ToastContainer } from "react-toastify";

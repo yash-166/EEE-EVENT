@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 import { FaUsers, FaTrophy, FaStopwatch } from "react-icons/fa";
-
-const socket = io("http://localhost:8000");
+const BACK_URL = import.meta.env.VITE_BACK_URL
+const socket = io(BACK_URL);
 
 const statements = [
     "2-bit comparator using single-bit comparator",
@@ -56,7 +56,7 @@ const LevelTwo = ({ }) => {
         //     .catch(err => console.error("Error fetching admin stats:", err));
 
         const fetchStats = () => {
-            fetch("http://localhost:8000/team/getStats")
+            fetch(`${BACK_URL}/team/getStats`)
                 .then(res => res.json())
                 .then(data => {
                     setCardCounts(data.cardCounts);

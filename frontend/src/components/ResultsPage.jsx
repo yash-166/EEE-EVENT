@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+const BACK_URL = import.meta.env.VITE_BACK_URL
 
 const ResultsPage = () => {
     const navigate = useNavigate();
@@ -15,8 +16,8 @@ const ResultsPage = () => {
 
     useEffect(() => {
         const teamId = localStorage.getItem("teamId");
-        
-        fetch(`http://localhost:8000/team/getSelection/${teamId}`)
+
+        fetch(`${BACK_URL}/team/getSelection/${teamId}`)
         .then((res) => res.json())
         .then((data) => {
           console.log("data from reult page level1submitted:",data)
@@ -38,7 +39,7 @@ const ResultsPage = () => {
         }
     
         try {
-            const response = await fetch("http://localhost:8000/team/submit-firstlevel", {
+            const response = await fetch(`${BACK_URL}/team/submit-firstlevel`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

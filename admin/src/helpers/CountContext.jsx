@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { io } from "socket.io-client";
-
-const socket = io("http://localhost:8000");
+const BACK_URL = import.meta.env.VITE_BACK_URL
+const socket = io(BACK_URL);
 
 const CountContext = createContext();
 

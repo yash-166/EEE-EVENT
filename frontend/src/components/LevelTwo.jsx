@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import { motion } from "framer-motion";
-
-const socket = io("http://localhost:8000");
+const BACK_URL = import.meta.env.VITE_BACK_URL
+const socket = io(BACK_URL);
 
 const LevelTwo = () => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ console.log("showStartMessage",showStartMessage);
 
     setTimeout(() => setShowContent(true), 300); // Delays showing content for smooth transition
 
-    fetch("http://localhost:8000/team/get-revealed-card")
+    fetch(`${BACK_URL}/team/get-revealed-card`)
       .then((res) => res.json())
       .then(data => {
         console.log("revealed data is:",data);
@@ -52,7 +52,7 @@ console.log("showStartMessage",showStartMessage);
      
     
     if (teamId) {
-      fetch(`http://localhost:8000/team/getSelection/${teamId}`)
+      fetch(`${BACK_URL}/team/getSelection/${teamId}`)
         .then((res) => res.json())
         .then((data) => {
           console.log("data is of:",data)
@@ -135,7 +135,7 @@ console.log("showStartMessage",showStartMessage);
     socket.emit("card_clicked", { teamId, cardIndex });
 
     // ✅ Save selected card in the backend
-    fetch("http://localhost:8000/team/saveSelection", {
+    fetch(`${BACK_URL}/team/saveSelection`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ teamId, selectedCard: cardIndex }),
@@ -164,7 +164,7 @@ console.log("showStartMessage",showStartMessage);
     }
 
     try {
-      const response = await fetch("http://localhost:8000/team/submitSecondLevel", {
+      const response = await fetch(`${BACK_URL}/team/submitSecondLevel`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ teamId, finishTime: formattedFinishTime }),

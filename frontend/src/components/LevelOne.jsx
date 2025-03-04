@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+const BACK_URL = import.meta.env.VITE_BACK_URL
 
 const MatchingGame = () => {
   const navigate = useNavigate();
@@ -98,7 +99,7 @@ const MatchingGame = () => {
     }
     setError("");
     try {
-      const response = await fetch("http://localhost:8000/team/match", {
+      const response = await fetch(`${BACK_URL}/team/match`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
