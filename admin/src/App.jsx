@@ -6,9 +6,6 @@ import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 
 function App() {
-  
-
-
   return (
     <Router>
     <div className="min-h-screen bg-[#0A192F] text-white flex max-h-[650px]">
