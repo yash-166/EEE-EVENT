@@ -13,21 +13,21 @@ const Sidebar = () => {
 
       <div className="space-y-4">
         <button
-          onClick={() => handleNavigation("/admin")}
+          onClick={() => handleNavigation("/")}
           className="w-full p-3 text-lg text-white bg-[#1E3A8A] hover:bg-[#2563EB] hover:scale-105 rounded-lg transition duration-300 shadow-md flex justify-center"
         >
           Registrations
         </button>
 
         <button
-          onClick={() => handleNavigation("/admin/levelOne")}
+          onClick={() => handleNavigation("/levelOne")}
           className="w-full p-3 text-lg text-white bg-[#1E3A8A] hover:bg-[#2563EB] hover:scale-105 rounded-lg transition duration-300 shadow-md flex justify-center"
         >
           Level One
         </button>
 
         <button
-          onClick={() => handleNavigation("/admin/levelTwo")}
+          onClick={() => handleNavigation("/levelTwo")}
           className="w-full p-3 text-lg text-white bg-[#1E3A8A] hover:bg-[#2563EB] hover:scale-105 rounded-lg transition duration-300 shadow-md flex justify-center"
         >
           Level Two

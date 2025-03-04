@@ -12,9 +12,9 @@ function App() {
       <Sidebar />
       <div className="flex-1 ps-4 flex flex-col items-center">
         <Routes>
-          <Route path="/admin"  element={<Registrations />} />
-          <Route path="/admin/levelOne" element={<LevelOne  />} />
-          <Route path="/admin/levelTwo" element={<LevelTwo/>} />
+          <Route path="/"  element={<Registrations />} />
+          <Route path="/levelOne" element={<LevelOne  />} />
+          <Route path="/levelTwo" element={<LevelTwo/>} />
         </Routes>
       </div>
     </div>
