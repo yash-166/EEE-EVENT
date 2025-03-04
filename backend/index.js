@@ -58,11 +58,8 @@ const io = socketIo(server, {
 });
 
 
-
-
-
 app.use(express.json());
-app.use(cors({ credentials: true }));
+app.use(cors("*"));
 
 app.use((req, res, next) => {
     req.io = io; // Attach io instance to request
